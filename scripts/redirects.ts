@@ -30,7 +30,7 @@ async function run() {
 
   const final = `${manual}\n${redirects.map(i => i.join('\t')).join('\n')}`
 
-  await fs.writeFile('_dist_redirects', final, 'utf-8')
+  await fs.writeFile('dist', final, 'utf-8')
 }
 
 run()
