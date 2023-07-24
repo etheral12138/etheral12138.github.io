@@ -55,7 +55,6 @@ export default defineConfig({
       dirs: 'pages',
       extendRoute(route) {
         const path = resolve(__dirname, route.component.slice(1))
-
         if (!path.includes('projects.md') && path.endsWith('.md')) {
           const md = fs.readFileSync(path, 'utf-8')
           const { data } = matter(md)
@@ -118,9 +117,9 @@ export default defineConfig({
             return
           const path = `og/${route}.png`
           promises.push(
-            fs.existsSync(`${id.slice(0, -3)}.png`)
-              ? fs.copy(`${id.slice(0, -3)}.png`, `public/${path}`)
-              : genreateOg(frontmatter.title!.replace(/\s-\s.*$/, '').trim(), `public/${path}`),
+            // fs.existsSync(`${id.slice(0, -3)}.png`) ?
+                fs.copy(`${id.slice(0, -3)}.png`, `public/${path}`)
+              // : genreateOg(frontmatter.title!.replace(/\s-\s.*$/, '').trim(), `public/${path}`),
           )
           frontmatter.image = `https://etheral12138.github.io/${path}`
         })()
@@ -176,6 +175,7 @@ export default defineConfig({
           next(warning)
       },
     },
+    outDir:"docs"
   },
 
   ssgOptions: {
