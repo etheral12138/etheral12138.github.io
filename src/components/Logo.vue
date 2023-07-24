@@ -1,5 +1,5 @@
 <template>
-  <img src="public/logo.png">
+  <img src="../../public/logo.png">
 </template>
 
 <style scoped>
